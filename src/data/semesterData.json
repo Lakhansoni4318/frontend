@@ -1,0 +1,121 @@
+[
+    {
+      "name": "Semester 1",
+      "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167717501820489808/DALLE_2023-10-28_12.21.38_-_Photo_logo_design_featuring_a_sleek_dark_circle_as_the_central_element._Inside_this_circle_the_words_SEMESTER_1_are_rendered_in_a_chic_stylish_ne.png?ex=654f24ab&is=653cafab&hm=f4b31dc2debf9949dac27da1f93dab0a64e83e2efb5dae17f32107e8ec4da21a&",
+      "subjects": [
+        {
+          "name": "Mathematical Foundation for Computer Application",
+          "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881106918490183/dda76a12-c802-4f69-88c8-371815a49cce.webp?ex=654fbd0a&is=653d480a&hm=ea4094ab7ead7bb9ede5e7d0586883325b00ed67f3b3bf965fa8edb8e402f6a7&",
+          "pdfs": []
+        },
+        {
+          "name": "Operating System and Unix Shell Programming",
+          "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881109061767309/4925326d-1595-4d9c-8773-356dfa8e44e3.webp?ex=654fbd0a&is=653d480a&hm=8632d6d6793719e703b6e351db330501c11349d6e661a425537aeb6aba5784a6&",
+          "pdfs": []
+        },
+        {
+          "name": "Data Communication and Computer Networks",
+          "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108172582972/486a5a48-4b7e-42e2-9ad4-b31763342e3d.webp?ex=654fbd0a&is=653d480a&hm=a9adcef80053c458f303ccc80b74bae33d7db4c43b788cddbe7aed5b14ef0d96&",
+          "pdfs": []
+        },
+        {
+          "name": "Data Structures with Algorithms",
+          "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108654931989/b508c694-e7fa-439b-83b5-a749bdd13965.webp?ex=654fbd0a&is=653d480a&hm=b8c66d523437fef1a078736980780d3ba5b7675b6f4c5f4c9a733e27f906caa8&",
+          "pdfs": []
+        },
+        {
+          "name": "Computer Organization and Architecture",
+          "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1168168891470594148/Computer_Organization.png?ex=6550c90f&is=653e540f&hm=4b19d0ff1b5a46fd9faccef7a1b8badbdac55b2351b03c1322b0fc92140cbb04&",
+          "pdfs": []
+        }
+      ]
+    },
+    {
+      "name": "Semester 2",
+      "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167709862831075348/DALLE_2023-10-28_11.50.49_-_Photo_logo_with_the_words_SEMESTER_2_illuminated_in_neon_blue_positioned_centrally_inside_a_refined_dark_circle._The_neon_blue_text_stands_out_vib.png?ex=654f1d8e&is=653ca88e&hm=6643397f1b3c57d68fb4d38d290ecd6b3dea40996caab7b083ce02e877495f63&",
+      "subjects": [
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        }
+      ]
+    },
+    {
+      "name": "Semester 3",
+      "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167713371307642880/DALLE_2023-10-28_12.04.47_-_Photo_logo_featuring_a_refined_dark_circle_as_the_backdrop._Inside_the_circle_theres_a_sleek_book_icon_illuminated_in_neon_blue._Above_the_book_th.png?ex=654f20d2&is=653cabd2&hm=e50cf2963a447d008046da055d5e8a1f791b2921cdb6d872c321fefb0b86e815&",
+      "subjects": [
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        }
+      ]
+    },
+    {
+      "name": "Semester 4",
+      "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167708966738989066/DALLE_2023-10-28_11.46.41_-_Photo_logo_with_SEMESTER_4_written_in_neon_blue_centrally_placed_inside_a_sleek_dark_circle._The_neon_text_glows_vibrantly_providing_a_contrast_a.png?ex=654f1cb8&is=653ca7b8&hm=e6038f2731cf857d60f51b896ac269cd05ca5f4f98745ab0c88b58031f36031c&",
+      "subjects": [
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },
+        {
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        },{
+          "name": "",
+          "image": "",
+          "pdfs": []
+        }
+      ]
+    }
+  ]
+  
