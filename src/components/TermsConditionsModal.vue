@@ -41,12 +41,6 @@
           We may modify these terms at any time. Your continued use of the
           website implies acceptance of the updated terms.
         </p>
-        <p>
-          <strong>Contact</strong>
-          <br />
-          For questions or concerns, contact us at
-          <router-link to="/feedback" class="text-blue-700">Here</router-link>.
-        </p>
       </div>
       <button
         @click="closeModal"

@@ -1,9 +1,18 @@
 <template>
-  <div>
+  <div class="my-10 min-h-screen">
     <Spinner v-if="isLoading" />
-
+    <InstructionSpecialisation
+      v-if="
+        !isLoading &&
+        (userSpecialization == undefined || userSpecialization == null)
+      "
+    />
     <ComingSoon
-      v-if="selectedSubjects.length === 0 && !isLoading"
+      v-else-if="
+        selectedSubjects.length === 0 &&
+        !isLoading &&
+        userSpecialization !== undefined
+      "
       title="Subject Not Available"
       message="We'll be updating the subject soon."
     />
@@ -42,11 +51,12 @@
 </template>
 
 <script>
-import { db } from "../firebase";
-import { collection, getDocs, where, query } from "firebase/firestore";
+import { db, auth } from "../firebase";
+import { collection, getDocs, where, query, doc } from "firebase/firestore";
 import ComingSoon from "../components/ComingSoon.vue";
 import Spinner from "./Spinner.vue";
 import Footer from "./Footer.vue";
+import InstructionSpecialisation from "./InstructionSpecialisation.vue";
 
 export default {
   name: "Subject",
@@ -54,24 +64,81 @@ export default {
     return {
       selectedSubjects: [],
       isLoading: true,
+      userSpecialization: localStorage.getItem("userSpecialization") || null,
     };
   },
   components: {
     ComingSoon,
     Spinner,
     Footer,
+    InstructionSpecialisation,
   },
-  async created() {
-    const semesterQuery = query(
-      collection(db, "Semester"),
-      where("name", "==", this.$route.params.name)
-    );
+  created() {
+    this.fetchData(); // Fetch data when the component is created
+  },
+  watch: {
+    "$route.params.name": "fetchData", // Watch for changes in the route parameter and call fetchData
+  },
+  methods: {
+    async fetchData() {
+      this.isLoading = true;
 
-    const semesterSnapshot = await getDocs(semesterQuery);
+      // Check if there is data in local storage
+      const storedData = localStorage.getItem("selectedSubjects");
 
-    const semesterDoc = semesterSnapshot.docs[0];
-    if (semesterDoc) {
-      const subjectsQuery = query(collection(semesterDoc.ref, "Subject"));
+      if (storedData) {
+        this.selectedSubjects = JSON.parse(storedData);
+        this.isLoading = false;
+        return;
+      }
+
+      // Fetch the currently logged-in user
+      const user = auth.currentUser;
+
+      if (user) {
+        // Use the user's email to fetch the specialization from the "users" collection
+        const userQuery = query(
+          collection(db, "users"),
+          where("email", "==", user.email)
+        );
+
+        const userSnapshot = await getDocs(userQuery);
+
+        if (!userSnapshot.empty) {
+          const userData = userSnapshot.docs[0].data();
+          this.userSpecialization = userData.specialization;
+
+          // Store userSpecialization in local storage
+          localStorage.setItem("userSpecialization", this.userSpecialization);
+        }
+      }
+
+      if (!this.userSpecialization) {
+        // Handle the case where user specialization is not found.
+        this.isLoading = false;
+        return;
+      }
+
+      // Now use the user's specialization to query the subjects
+      const semesterQuery = query(
+        collection(db, "Semester"),
+        where("name", "==", this.$route.params.name)
+      );
+
+      const semesterSnapshot = await getDocs(semesterQuery);
+
+      if (semesterSnapshot.empty) {
+        this.isLoading = false;
+        return;
+      }
+
+      const semesterDoc = semesterSnapshot.docs[0];
+      const specializationRef = doc(
+        semesterDoc.ref,
+        `Specialization/${this.userSpecialization}`
+      );
+      const subjectsQuery = query(collection(specializationRef, "Subject"));
+
       const subjectSnapshot = await getDocs(subjectsQuery);
 
       this.selectedSubjects = subjectSnapshot.docs.map((subjectDoc) => {
@@ -81,8 +148,21 @@ export default {
           imageUrl: subjectData.image,
         };
       });
-    }
-    this.isLoading = false;
+
+      // Save data to local storage
+      localStorage.setItem(
+        "selectedSubjects",
+        JSON.stringify(this.selectedSubjects)
+      );
+
+      this.isLoading = false;
+    },
+  },
+  beforeRouteLeave(to, from, next) {
+    // Clear data from local storage when leaving the component
+    localStorage.removeItem("selectedSubjects");
+    localStorage.removeItem("userSpecialization");
+    next();
   },
 };
 </script>

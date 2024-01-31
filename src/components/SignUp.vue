@@ -157,6 +157,8 @@ import { auth } from "../firebase";
 import { useStore } from "vuex";
 import { validNumbers } from "../Number";
 import TermsConditionsModal from "./TermsConditionsModal.vue";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+
 export default {
   components: {
     Spinner,
@@ -179,7 +181,20 @@ export default {
       try {
         this.isLoading = true;
         const { number, email, password, confirmPassword } = this.formData;
-        console.log(validNumbers.includes(Number(number)));
+
+        const validEmailPattern = /@gmail\.com$/;
+        if (!validEmailPattern.test(email)) {
+          alert("Only @gmail.com email addresses are allowed");
+          return;
+        }
+
+        const username = email.split("@")[0];
+        const disallowedChars = /[!@#$%^&*()+=]/;
+        if (disallowedChars.test(username)) {
+          alert("Special characters are not allowed in the email username");
+          return;
+        }
+
         // Check if the number exists in the array of valid numbers
         if (!validNumbers.includes(Number(number))) {
           alert("Number is not valid");
@@ -207,6 +222,27 @@ export default {
           // The error here means email is not registered, which is expected.
         }
 
+        // Now, check if the mobile number is already in Firestore
+        const db = getFirestore();
+        const usersRef = collection(db, "users");
+        const querySnapshot = await getDocs(usersRef);
+
+        let numberExists = false;
+
+        querySnapshot.forEach((doc) => {
+          const userData = doc.data();
+          if (userData.number === number) {
+            numberExists = true;
+            return;
+          }
+        });
+
+        if (numberExists) {
+          alert("Mobile number is already registered");
+          return;
+        }
+
+        // Create the user account in Firebase Authentication
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
@@ -216,8 +252,18 @@ export default {
 
         if (user) {
           user.displayName = number.toString();
-          console.log(user.displayName);
           alert("Your account has been created.");
+
+          // Now, save user data to Firestore
+          const userRef = collection(db, "users");
+          const newUser = {
+            number: number,
+            email: email.toLowerCase(),
+            role: "user",
+          };
+
+          await addDoc(userRef, newUser);
+
           this.$router.push({ name: "login" });
         } else {
           alert("User registration failed. Please try again.");

@@ -10,9 +10,15 @@
   },
   "dependencies": {
     "@google-cloud/firestore": "^7.1.0",
+    "@heroicons/vue": "^1.0.6",
     "axios": "^1.5.1",
+    "bootstrap-icons": "^1.11.1",
+    "date-fns": "^2.30.0",
     "firebase": "^10.5.0",
+    "pdf-lib": "^1.17.1",
     "vue": "^3.3.4",
+    "vue-heroicons": "^0.9.4",
+    "vue-pdf-embed": "^1.2.1",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0"
   },

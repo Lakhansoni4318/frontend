@@ -82,77 +82,122 @@ import {
   query,
   where,
   getDocs,
+  doc,
   deleteDoc,
 } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import ComingSoon from "./ComingSoon.vue";
 import Spinner from "./Spinner.vue";
 import Footer from "./footer.vue";
+import InstructionSpecialisation from "./InstructionSpecialisation.vue";
 
 export default {
   data() {
     return {
       pdfs: [],
-      isLoading: true, // Set it to true initially
+      isLoading: true,
     };
   },
   components: {
     ComingSoon,
     Spinner,
     Footer,
+    InstructionSpecialisation,
   },
   methods: {
     async fetchSemesterData() {
-      if (this.$route.params.semName) {
-        const semesterQuery = query(
-          collection(db, "Semester"),
-          where("name", "==", this.$route.params.semName)
+      const user = auth.currentUser;
+
+      if (user) {
+        const userQuery = query(
+          collection(db, "users"),
+          where("email", "==", user.email)
         );
 
-        const semesterSnapshot = await getDocs(semesterQuery);
-        const semesterDoc = semesterSnapshot.docs[0];
+        const userSnapshot = await getDocs(userQuery);
 
-        if (semesterDoc && this.$route.params.name) {
-          const subjectQuery = query(
-            collection(semesterDoc.ref, "Subject"),
-            where("name", "==", this.$route.params.name)
-          );
+        if (!userSnapshot.empty) {
+          const userData = userSnapshot.docs[0].data();
+          const userSpecialization = userData.specialization;
 
-          const subjectSnapshot = await getDocs(subjectQuery);
-          const subjectDoc = subjectSnapshot.docs[0];
+          if (
+            this.$route.params.semName &&
+            this.$route.params.name &&
+            userSpecialization
+          ) {
+            const semesterQuery = query(
+              collection(db, "Semester"),
+              where("name", "==", this.$route.params.semName)
+            );
 
-          if (subjectDoc) {
-            const pdfsQuery = query(collection(subjectDoc.ref, "Pdf"));
-            const pdfSnapshot = await getDocs(pdfsQuery);
+            const semesterSnapshot = await getDocs(semesterQuery);
+            const semesterDoc = semesterSnapshot.docs[0];
 
-            this.pdfs = pdfSnapshot.docs.map((pdfDoc) => {
-              const pdfData = pdfDoc.data();
-              return {
-                pdfUrl: pdfData.pdfUrl,
-                name: pdfData.name,
-                imageUrl: pdfData.imageUrl,
-                ref: pdfDoc.ref, // Firestore reference for deleting
-                showOptions: false, // Option visibility flag
-              };
-            });
+            if (semesterDoc) {
+              const specializationRef = doc(
+                semesterDoc.ref,
+                `Specialization/${userSpecialization}`
+              );
+
+              const subjectQuery = query(
+                collection(specializationRef, "Subject"),
+                where("name", "==", this.$route.params.name)
+              );
+
+              const subjectSnapshot = await getDocs(subjectQuery);
+              const subjectDoc = subjectSnapshot.docs[0];
+
+              if (subjectDoc) {
+                const pdfsQuery = query(collection(subjectDoc.ref, "Pdf"));
+                const pdfSnapshot = await getDocs(pdfsQuery);
+
+                this.pdfs = pdfSnapshot.docs.map((pdfDoc) => {
+                  const pdfData = pdfDoc.data();
+                  return {
+                    pdfUrl: pdfData.pdfUrl,
+                    name: pdfData.name,
+                    imageUrl: pdfData.imageUrl,
+                    ref: pdfDoc.ref,
+                    showOptions: false,
+                  };
+                });
+              }
+            }
           }
         }
       }
     },
     async deletePdf(pdf) {
-      // Delete the PDF from Firestore
       await deleteDoc(pdf.ref);
-      // Delete the PDF from the local array
       const index = this.pdfs.findIndex((item) => item === pdf);
       if (index !== -1) {
         this.pdfs.splice(index, 1);
+        this.storePdfDataInLocalStorage();
       }
     },
+    storePdfDataInLocalStorage() {
+      localStorage.setItem("pdfs", JSON.stringify(this.pdfs));
+    },
+    removePdfDataFromLocalStorage() {
+      localStorage.removeItem("pdfs");
+    },
   },
-  async created() {
-    // Fetch the PDFs based on the route parameters
-    await this.fetchSemesterData(); // Wait for data to load
-    this.isLoading = false; // Set isLoading to false when data is loaded
+  created() {
+    const storedPdfs = localStorage.getItem("pdfs");
+
+    if (storedPdfs) {
+      this.pdfs = JSON.parse(storedPdfs);
+      this.isLoading = false;
+    } else {
+      this.fetchSemesterData().then(() => {
+        this.storePdfDataInLocalStorage();
+        this.isLoading = false;
+      });
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.removePdfDataFromLocalStorage();
+    next();
   },
 };
 </script>

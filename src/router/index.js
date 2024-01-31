@@ -10,6 +10,9 @@ import GetData from "../components/GetData.vue";
 import Subject from "../components/Subject.vue";
 import store from "../store";
 import FeedBack from "../components/FeedBack.vue";
+import Setting from "../components/Setting.vue";
+import AdminPanel from "../components/AdminPanel.vue";
+import Chat from "../components/Chat.vue";
 
 const routes = [
   {
@@ -26,13 +29,34 @@ const routes = [
         name: "Subject",
         component: Subject,
         props: true,
+        meta: { requiresAuth: true },
       },
       {
         path: "/semester/:semName/pdf/:name",
         name: "pdf",
         component: Pdf,
+        meta: { requiresAuth: true },
+      },
+
+      {
+        path: "/admin",
+        name: "admin",
+        component: GetData,
+        meta: { requiresAuth: true, role: ["admin", "subadmin"] },
       },
     ],
+  },
+  {
+    path: "/setting",
+    name: "setting",
+    component: Setting,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/chat",
+    name: "chat",
+    component: Chat,
+    meta: { requiresAuth: true },
   },
   {
     path: "/signUp",
@@ -50,6 +74,7 @@ const routes = [
   {
     path: "/feedback",
     component: FeedBack,
+    meta: { requiresAuth: true },
   },
   {
     path: "/upload",
@@ -57,23 +82,21 @@ const routes = [
     component: Upload,
   },
   {
+    path: "/adminpanel",
+    name: "adminPanel",
+    component: AdminPanel,
+    meta: { requiresAuth: true, role: "admin" },
+  },
+  {
     path: "/login",
     name: "login",
     component: Login,
-    meta: { requiresAuth: false }, // Ensure that Login does not require authentication
+    meta: { requiresAuth: false },
     beforeEnter(to, from, next) {
-      // Additional logout logic if needed
-      localStorage.removeItem("userRole");
-      localStorage.removeItem("isLoggedIn");
+      localStorage.clear();
       store.state.isLoggedIn = false;
       next();
     },
-  },
-  {
-    path: "/admin",
-    name: "admin",
-    component: GetData,
-    meta: { requiresAuth: true, role: "admin" },
   },
 ];
 
@@ -98,7 +121,7 @@ router.beforeEach(async (to, from, next) => {
       const userRole = store.getters.userRole;
 
       if (requiresAuth) {
-        if (to.meta.role === "admin" && userRole !== "admin") {
+        if (to.meta.role && !to.meta.role.includes(userRole)) {
           next({ name: "home" });
         } else {
           next();

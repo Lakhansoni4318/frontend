@@ -21,13 +21,13 @@
           >
           <input
             v-model="formData.email"
+            :disabled="isUserLoggedIn"
             type="email"
             id="email"
             name="email"
             class="w-full border border-gray-300 rounded-lg p-2"
           />
         </div>
-
         <div class="space-y-2">
           <label for="feedback" class="block text-sm font-medium text-gray-700"
             >Feedback</label
@@ -51,8 +51,15 @@
 </template>
 
 <script>
-// Import Axios if you haven't already
 import axios from "axios";
+import { onAuthStateChanged, getAuth } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 export default {
   data() {
@@ -62,10 +69,15 @@ export default {
         email: "",
         feedback: "",
       },
+      isUserLoggedIn: false,
     };
   },
   methods: {
     submitFeedback() {
+      if (!this.formData.feedback.trim()) {
+        alert("Feedback cannot be empty.");
+        return;
+      }
       axios
         .post("https://formspree.io/f/mdorbrzw", this.formData)
         .then(() => {
@@ -75,10 +87,38 @@ export default {
           console.error(error);
         });
 
-      this.formData.name = "";
-      this.formData.email = "";
+      this.formData.name = this.formData.name || "";
       this.formData.feedback = "";
     },
+  },
+  async created() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const db = getFirestore();
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("email", "==", user.email));
+
+        try {
+          const querySnapshot = await getDocs(q);
+          if (querySnapshot.size > 0) {
+            const userDoc = querySnapshot.docs[0].data();
+            // Assuming the name field is present in the user document
+            this.formData.name = userDoc.name || "";
+          } else {
+            console.warn("User document not found for email:", user.email);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+
+        this.formData.email = user.email;
+        this.isUserLoggedIn = true;
+      } else {
+        this.formData.email = "";
+        this.isUserLoggedIn = false;
+      }
+    });
   },
 };
 </script>

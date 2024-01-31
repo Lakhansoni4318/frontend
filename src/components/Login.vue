@@ -86,6 +86,13 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import store from "../store";
 
 export default {
@@ -95,6 +102,7 @@ export default {
     const router = useRouter();
     const alertMessage = ref("");
 
+    // Inside your setup function
     const loginUser = async () => {
       try {
         const auth = getAuth();
@@ -108,36 +116,58 @@ export default {
 
         if (userCredential.user) {
           const uid = userCredential.user.uid;
-          const isAdmin = checkIfUserIsAdmin(uid);
-          console.log(isAdmin);
-          if (isAdmin) {
-            store.commit("setUserRole", "admin");
+          const userRole = await getUserRoleFromFirestore(email.value);
+
+          if (userRole) {
+            store.commit("setUserRole", userRole);
             store.commit("setLoggedIn", true);
-            localStorage.setItem("userRole", "admin");
+            localStorage.setItem("userRole", userRole);
             localStorage.setItem("isLoggedIn", "true");
             router.push({ name: "home" });
           } else {
-            store.commit("setUserRole", "user");
-            store.commit("setLoggedIn", true);
-            localStorage.setItem("userRole", "user");
-            localStorage.setItem("isLoggedIn", "true");
-            router.push({ name: "home" });
+            alert("User role not found. Please contact support.");
           }
         } else {
+          // User not found
           alert("Account not found. Please sign up.");
         }
       } catch (error) {
-        alert("Account not found. Please sign up.");
+        console.error(error);
+
+        if (error.code === "auth/user-not-found") {
+          // User not found
+          alert("Account not found. Please sign up.");
+        } else if (error.code === "auth/wrong-password") {
+          // Incorrect password
+          alert("Incorrect password. Please try again.");
+        } else {
+          // Other errors
+          alert("An error occurred during login. Please try again.");
+        }
       }
     };
 
-    function checkIfUserIsAdmin(uid) {
-      const adminUids = [
-        "tBobLeS4FadPhM9YfeQWoNr2Z6G2",
-        "ILr0GbQ883SnEDZJKJGMLLaRgeM2",
-      ];
-      return adminUids.includes(uid);
-    }
+    const getUserRoleFromFirestore = async (userEmail) => {
+      try {
+        const firestore = getFirestore();
+        const q = query(
+          collection(firestore, "users"),
+          where("email", "==", userEmail)
+        );
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.size > 0) {
+          const userDoc = querySnapshot.docs[0];
+          return userDoc.data().role;
+        } else {
+          console.warn("User not found in Firestore.");
+          return null;
+        }
+      } catch (error) {
+        console.error("Error fetching user role from Firestore:", error);
+        return null;
+      }
+    };
 
     return {
       email,
