@@ -1,34 +1,34 @@
 [
   {
     "name": "Semester 1",
-    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167717501820489808/DALLE_2023-10-28_12.21.38_-_Photo_logo_design_featuring_a_sleek_dark_circle_as_the_central_element._Inside_this_circle_the_words_SEMESTER_1_are_rendered_in_a_chic_stylish_ne.png?ex=654f24ab&is=653cafab&hm=f4b31dc2debf9949dac27da1f93dab0a64e83e2efb5dae17f32107e8ec4da21a&",
+    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1168584905685487696/DALLE_2023-10-30_21.48.23_-_Photo_of_a_circular_emblem_emitting_a_bright_neon_blue_glow._The_term_SEMESTER_is_gracefully_arched_over_a_central_stylized_icon._Directly_beneath_t.png?ex=661d5380&is=660ade80&hm=21398a6f31f23e22cfb3e6013e4c93b0f18dfeb4b84be942e74cde01455e43c4&",
     "specializations": [
       {
         "name": "Cloud Computing",
         "subjects": [
           {
-            "name": "Mathematical Foundation for Computer Application",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881106918490183/dda76a12-c802-4f69-88c8-371815a49cce.webp?ex=654fbd0a&is=653d480a&hm=ea4094ab7ead7bb9ede5e7d0586883325b00ed67f3b3bf965fa8edb8e402f6a7&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Operating System and Unix Shell Programming",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881109061767309/4925326d-1595-4d9c-8773-356dfa8e44e3.webp?ex=654fbd0a&is=653d480a&hm=8632d6d6793719e703b6e351db330501c11349d6e661a425537aeb6aba5784a6&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Communication and Computer Networks",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108172582972/486a5a48-4b7e-42e2-9ad4-b31763342e3d.webp?ex=654fbd0a&is=653d480a&hm=a9adcef80053c458f303ccc80b74bae33d7db4c43b788cddbe7aed5b14ef0d96&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Structures with Algorithms",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108654931989/b508c694-e7fa-439b-83b5-a749bdd13965.webp?ex=654fbd0a&is=653d480a&hm=b8c66d523437fef1a078736980780d3ba5b7675b6f4c5f4c9a733e27f906caa8&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Computer Organization and Architecture",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1168168891470594148/Computer_Organization.png?ex=6550c90f&is=653e540f&hm=4b19d0ff1b5a46fd9faccef7a1b8badbdac55b2351b03c1322b0fc92140cbb04&",
+            "name": "",
+            "image": "",
             "pdfs": []
           }
         ]
@@ -37,28 +37,28 @@
         "name": "Full Stack",
         "subjects": [
           {
-            "name": "Mathematical Foundation for Computer Application",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881106918490183/dda76a12-c802-4f69-88c8-371815a49cce.webp?ex=654fbd0a&is=653d480a&hm=ea4094ab7ead7bb9ede5e7d0586883325b00ed67f3b3bf965fa8edb8e402f6a7&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Operating System and Unix Shell Programming",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881109061767309/4925326d-1595-4d9c-8773-356dfa8e44e3.webp?ex=654fbd0a&is=653d480a&hm=8632d6d6793719e703b6e351db330501c11349d6e661a425537aeb6aba5784a6&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Communication and Computer Networks",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108172582972/486a5a48-4b7e-42e2-9ad4-b31763342e3d.webp?ex=654fbd0a&is=653d480a&hm=a9adcef80053c458f303ccc80b74bae33d7db4c43b788cddbe7aed5b14ef0d96&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Structures with Algorithms",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108654931989/b508c694-e7fa-439b-83b5-a749bdd13965.webp?ex=654fbd0a&is=653d480a&hm=b8c66d523437fef1a078736980780d3ba5b7675b6f4c5f4c9a733e27f906caa8&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Computer Organization and Architecture",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1168168891470594148/Computer_Organization.png?ex=6550c90f&is=653e540f&hm=4b19d0ff1b5a46fd9faccef7a1b8badbdac55b2351b03c1322b0fc92140cbb04&",
+            "name": "",
+            "image": "",
             "pdfs": []
           }
         ]
@@ -67,28 +67,28 @@
         "name": "Artificial Intelligence",
         "subjects": [
           {
-            "name": "Mathematical Foundation for Computer Application",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881106918490183/dda76a12-c802-4f69-88c8-371815a49cce.webp?ex=654fbd0a&is=653d480a&hm=ea4094ab7ead7bb9ede5e7d0586883325b00ed67f3b3bf965fa8edb8e402f6a7&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Operating System and Unix Shell Programming",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881109061767309/4925326d-1595-4d9c-8773-356dfa8e44e3.webp?ex=654fbd0a&is=653d480a&hm=8632d6d6793719e703b6e351db330501c11349d6e661a425537aeb6aba5784a6&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Communication and Computer Networks",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108172582972/486a5a48-4b7e-42e2-9ad4-b31763342e3d.webp?ex=654fbd0a&is=653d480a&hm=a9adcef80053c458f303ccc80b74bae33d7db4c43b788cddbe7aed5b14ef0d96&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Structures with Algorithms",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108654931989/b508c694-e7fa-439b-83b5-a749bdd13965.webp?ex=654fbd0a&is=653d480a&hm=b8c66d523437fef1a078736980780d3ba5b7675b6f4c5f4c9a733e27f906caa8&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Computer Organization and Architecture",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1168168891470594148/Computer_Organization.png?ex=6550c90f&is=653e540f&hm=4b19d0ff1b5a46fd9faccef7a1b8badbdac55b2351b03c1322b0fc92140cbb04&",
+            "name": "",
+            "image": "",
             "pdfs": []
           }
         ]
@@ -97,28 +97,28 @@
         "name": "Data Science",
         "subjects": [
           {
-            "name": "Mathematical Foundation for Computer Application",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881106918490183/dda76a12-c802-4f69-88c8-371815a49cce.webp?ex=654fbd0a&is=653d480a&hm=ea4094ab7ead7bb9ede5e7d0586883325b00ed67f3b3bf965fa8edb8e402f6a7&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Operating System and Unix Shell Programming",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881109061767309/4925326d-1595-4d9c-8773-356dfa8e44e3.webp?ex=654fbd0a&is=653d480a&hm=8632d6d6793719e703b6e351db330501c11349d6e661a425537aeb6aba5784a6&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Communication and Computer Networks",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108172582972/486a5a48-4b7e-42e2-9ad4-b31763342e3d.webp?ex=654fbd0a&is=653d480a&hm=a9adcef80053c458f303ccc80b74bae33d7db4c43b788cddbe7aed5b14ef0d96&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Data Structures with Algorithms",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1167881108654931989/b508c694-e7fa-439b-83b5-a749bdd13965.webp?ex=654fbd0a&is=653d480a&hm=b8c66d523437fef1a078736980780d3ba5b7675b6f4c5f4c9a733e27f906caa8&",
+            "name": "",
+            "image": "",
             "pdfs": []
           },
           {
-            "name": "Computer Organization and Architecture",
-            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1168168891470594148/Computer_Organization.png?ex=6550c90f&is=653e540f&hm=4b19d0ff1b5a46fd9faccef7a1b8badbdac55b2351b03c1322b0fc92140cbb04&",
+            "name": "",
+            "image": "",
             "pdfs": []
           }
         ]
@@ -127,32 +127,34 @@
   },
   {
     "name": "Semester 2",
-    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167709862831075348/DALLE_2023-10-28_11.50.49_-_Photo_logo_with_the_words_SEMESTER_2_illuminated_in_neon_blue_positioned_centrally_inside_a_refined_dark_circle._The_neon_blue_text_stands_out_vib.png?ex=654f1d8e&is=653ca88e&hm=6643397f1b3c57d68fb4d38d290ecd6b3dea40996caab7b083ce02e877495f63&",
+    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167709862831075348/DALLE_2023-10-28_11.50.49_-_Photo_logo_with_the_words_SEMESTER_2_illuminated_in_neon_blue_positioned_centrally_inside_a_refined_dark_circle._The_neon_blue_text_stands_out_vib.png?ex=66235f0e&is=6610ea0e&hm=e787a3ff747439edde1e3e8e44774504ab377b79ae1845f3bd0e7577a7ae2e33&",
     "specializations": [
       {
         "name": "Cloud Computing",
         "subjects": [
           {
-            "name": "",
-            "image": "",
+            "name": "Relational Database Management System",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226428574706176060/IMG-20240407-WA0003.jpg?ex=6624bb9e&is=6612469e&hm=4ecdad7dc4e0b435a04bfdae6d51530a9508dbf408811960983a4d0c3cc8a832&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Design Algorithm and Analysis",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226429832125091910/IMG-20240407-WA0004.jpg?ex=6624bcc9&is=661247c9&hm=a549a7dc96ff3da4a228c2b89b5095a051fd75a3ebbfb59e3032bc15cfdd96e8&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Java Programming",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226435221725909073/IMG-20240407-WA0005.jpg?ex=6624c1ce&is=66124cce&hm=769b7c1d1d80d2c3924e6fe2223a5282dd63cb0330cfcb28e501627035a21c65&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Cloud Foundation",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226441786193350706/IMG-20240407-WA0036.jpg?ex=6624c7ec&is=661252ec&hm=e0901dacb8b9988cf582a6c27d0ca4a6b8bdb1d3417dd64bbe71454111816bc8&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Cloud Computing:AWS",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226442486071820368/IMG-20240407-WA0038.jpg?ex=6624c892&is=66125392&hm=fcdff7959dd9ccfa8bf084199a980460afecaba394474afed8bdf19c39202d13&",
             "pdfs": []
           }
         ]
@@ -161,26 +163,28 @@
         "name": "Full Stack",
         "subjects": [
           {
-            "name": "",
-            "image": "",
+            "name": "Relational Database Management System",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226428574706176060/IMG-20240407-WA0003.jpg?ex=6624bb9e&is=6612469e&hm=4ecdad7dc4e0b435a04bfdae6d51530a9508dbf408811960983a4d0c3cc8a832&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Java Programming",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226435221725909073/IMG-20240407-WA0005.jpg?ex=6624c1ce&is=66124cce&hm=769b7c1d1d80d2c3924e6fe2223a5282dd63cb0330cfcb28e501627035a21c65&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Design Algorithm and Analysis",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226429832125091910/IMG-20240407-WA0004.jpg?ex=6624bcc9&is=661247c9&hm=a549a7dc96ff3da4a228c2b89b5095a051fd75a3ebbfb59e3032bc15cfdd96e8&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Web Development using HTML and CSS",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226443091674660936/IMG-20240407-WA0039.jpg?ex=6624c923&is=66125423&hm=576d1f692b839c3515fa9e6d7c9f6976f85c6b52a4cb175af63fc863bae640a3&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Dynamic Web Application using Javascript",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226443579497386014/IMG-20240407-WA0041.jpg?ex=6624c997&is=66125497&hm=8f2dff1f82a505ef0fe6e18f5a43cccf063d0cacf9f6e845a5d702d38fa94031&",
             "pdfs": []
           }
         ]
@@ -189,26 +193,28 @@
         "name": "Artificial Intelligence",
         "subjects": [
           {
-            "name": "",
-            "image": "",
+            "name": "Java Programming",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226435221725909073/IMG-20240407-WA0005.jpg?ex=6624c1ce&is=66124cce&hm=769b7c1d1d80d2c3924e6fe2223a5282dd63cb0330cfcb28e501627035a21c65&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Design Algorithm and Analysis",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226429832125091910/IMG-20240407-WA0004.jpg?ex=6624bcc9&is=661247c9&hm=a549a7dc96ff3da4a228c2b89b5095a051fd75a3ebbfb59e3032bc15cfdd96e8&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Relational Database Management System",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226428574706176060/IMG-20240407-WA0003.jpg?ex=6624bb9e&is=6612469e&hm=4ecdad7dc4e0b435a04bfdae6d51530a9508dbf408811960983a4d0c3cc8a832&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Foundations of ML",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226444580254257172/IMG-20240407-WA0042.jpg?ex=6624ca86&is=66125586&hm=a0a5945a9ec065c859485484e40c263833a7adb4f7e4153720c475702c66f6a2&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Predictive Analysis using ML",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226445723160023060/IMG-20240407-WA0043.jpg?ex=6624cb96&is=66125696&hm=d965369ca0261160997e0f86b188eeba6b4acc2803e630300e9031de1cb4c635&",
             "pdfs": []
           }
         ]
@@ -217,26 +223,28 @@
         "name": "Data Science",
         "subjects": [
           {
-            "name": "",
-            "image": "",
+            "name": "Java Programming",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226435221725909073/IMG-20240407-WA0005.jpg?ex=6624c1ce&is=66124cce&hm=769b7c1d1d80d2c3924e6fe2223a5282dd63cb0330cfcb28e501627035a21c65&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Design Algorithm and Analysis",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226429832125091910/IMG-20240407-WA0004.jpg?ex=6624bcc9&is=661247c9&hm=a549a7dc96ff3da4a228c2b89b5095a051fd75a3ebbfb59e3032bc15cfdd96e8&",
             "pdfs": []
           },
           {
-            "name": "",
-            "image": "",
+            "name": "Relational Database Management System",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226428574706176060/IMG-20240407-WA0003.jpg?ex=6624bb9e&is=6612469e&hm=4ecdad7dc4e0b435a04bfdae6d51530a9508dbf408811960983a4d0c3cc8a832&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Python for Data Science",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226446311880917143/IMG-20240407-WA0044.jpg?ex=6624cc23&is=66125723&hm=662f7f5f3cf1de7d0abcbd2c528a2301fb43f3d8b844e7c2d7e5484361051c01&",
             "pdfs": []
-          },{
-            "name": "",
-            "image": "",
+          },
+          {
+            "name": "Statistical Methods in Decision Making",
+            "image": "https://cdn.discordapp.com/attachments/1152472095356366970/1226448630488105030/IMG-20240407-WA0045.jpg?ex=6624ce4b&is=6612594b&hm=40641bdbfa8268b7d124cbe1a5c3801436a5061d73a2cfba626f9649e4ed0289&",
             "pdfs": []
           }
         ]
@@ -245,7 +253,7 @@
   },
   {
     "name": "Semester 3",
-    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167713371307642880/DALLE_2023-10-28_12.04.47_-_Photo_logo_featuring_a_refined_dark_circle_as_the_backdrop._Inside_the_circle_theres_a_sleek_book_icon_illuminated_in_neon_blue._Above_the_book_th.png?ex=654f20d2&is=653cabd2&hm=e50cf2963a447d008046da055d5e8a1f791b2921cdb6d872c321fefb0b86e815&",
+    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167713371307642880/DALLE_2023-10-28_12.04.47_-_Photo_logo_featuring_a_refined_dark_circle_as_the_backdrop._Inside_the_circle_theres_a_sleek_book_icon_illuminated_in_neon_blue._Above_the_book_th.png?ex=66236252&is=6610ed52&hm=c5a48ebad4c8bd2b4e1d66bec991dd61fc86646fe2e1abd4de6afb356ddb3156&",
     "specializations": [
       {
         "name": "Cloud Computing",
@@ -264,11 +272,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -292,11 +302,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -320,11 +332,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -348,11 +362,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -363,7 +379,7 @@
   },
   {
     "name": "Semester 4",
-    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167708966738989066/DALLE_2023-10-28_11.46.41_-_Photo_logo_with_SEMESTER_4_written_in_neon_blue_centrally_placed_inside_a_sleek_dark_circle._The_neon_text_glows_vibrantly_providing_a_contrast_a.png?ex=654f1cb8&is=653ca7b8&hm=e6038f2731cf857d60f51b896ac269cd05ca5f4f98745ab0c88b58031f36031c&",
+    "imageUrl": "https://cdn.discordapp.com/attachments/1152472095356366970/1167708966738989066/DALLE_2023-10-28_11.46.41_-_Photo_logo_with_SEMESTER_4_written_in_neon_blue_centrally_placed_inside_a_sleek_dark_circle._The_neon_text_glows_vibrantly_providing_a_contrast_a.png?ex=66235e38&is=6610e938&hm=5058a1744d5bc0ab0fc1ae14f10518de326a821181e88fa19cceb516eca742a8&",
     "specializations": [
       {
         "name": "Cloud Computing",
@@ -382,11 +398,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -410,11 +428,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -438,11 +458,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
@@ -466,11 +488,13 @@
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []
-          },{
+          },
+          {
             "name": "",
             "image": "",
             "pdfs": []

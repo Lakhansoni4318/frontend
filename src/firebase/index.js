@@ -4,13 +4,13 @@ import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOjD0nPjIlzUKN9t0Gwz3z1GGEgJwVIfU",
-  authDomain: "assignment-record-fb62f.firebaseapp.com",
-  projectId: "assignment-record-fb62f",
-  storageBucket: "assignment-record-fb62f.appspot.com",
-  messagingSenderId: "144594445279",
-  appId: "1:144594445279:web:9a70d85a8fed8ee1319a6a",
-  measurementId: "G-ZSJJ54C408",
+  apiKey: "AIzaSyCb1HShH7I5EOIglAINd8xqbQYueCgHPDE",
+  authDomain: "friendnoteshub.firebaseapp.com",
+  projectId: "friendnoteshub",
+  storageBucket: "friendnoteshub.appspot.com",
+  messagingSenderId: "438755235265",
+  appId: "1:438755235265:web:2b2526525409400d230b40",
+  measurementId: "G-3D2BPQMYXF"
 };
 
 const app = initializeApp(firebaseConfig);

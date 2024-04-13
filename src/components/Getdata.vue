@@ -202,108 +202,119 @@ export default {
       this.selectedFile = event.target.files[0];
     },
     async uploadPdf() {
-      if (
-        !this.selectedFile ||
-        !this.selectedSemester ||
-        !this.selectedSubject ||
-        !this.pdfType
-      ) {
-        alert(
-          "Please select both a semester, a subject, and PDF type before uploading."
+  if (
+    !this.selectedFile ||
+    !this.selectedSemester ||
+    !this.selectedSubject ||
+    !this.pdfType
+  ) {
+    alert(
+      "Please select both a semester, a subject, and PDF type before uploading."
+    );
+    return;
+  }
+
+  if (this.customFileName.trim() === "") {
+    alert("Please provide a custom file name.");
+    return;
+  }
+
+  const storage = getStorage();
+  const semesterName = this.semesters.find(
+    (semester) => semester.id === this.selectedSemester
+  ).name;
+
+  // List of common subjects that will be uploaded for all specializations
+  const commonSubjects = ["Java Programming", "Design Algorithm and Analysis", "Relational Database Management System"];
+
+  // List of specializations
+  const specializationList = [
+    "Artificial Intelligence",
+    "Cloud Computing",
+    "Data Science",
+    "Full Stack",
+  ];
+
+  for (const specialization of specializationList) {
+    if (
+      specialization === this.selectedSpecialization ||
+      commonSubjects.includes(this.selectedSubject)
+    ) {
+      const filePath = `pdfs/${semesterName}/${specialization}/${this.customFileName}.pdf`;
+      const fileRef = storageRef(storage, filePath);
+
+      try {
+        const uploadTask = uploadBytesResumable(fileRef, this.selectedFile);
+
+        uploadTask.on("state_changed", (uploadSnapshot) => {
+          const progress =
+            (uploadSnapshot.bytesTransferred / uploadSnapshot.totalBytes) *
+            100;
+          this.uploadProgress = Math.round(progress);
+        });
+
+        await uploadTask;
+
+        const pdfUrl = await getDownloadURL(fileRef);
+        this.pdfUrl = pdfUrl;
+
+        const pdfCollectionPath = [
+          "Semester",
+          this.selectedSemester,
+          "Specialization",
+          specialization,
+          "Subject",
+        ]
+          .filter((segment) => segment !== null)
+          .join("/");
+
+        const subjectQuery = query(
+          collection(db, pdfCollectionPath),
+          where("name", "==", this.selectedSubject)
         );
-        return;
-      }
 
-      if (this.customFileName.trim() === "") {
-        alert("Please provide a custom file name.");
-        return;
-      }
+        const subjectDocs = await getDocs(subjectQuery);
 
-      const storage = getStorage();
-      const semesterName = this.semesters.find(
-        (semester) => semester.id === this.selectedSemester
-      ).name;
+        if (subjectDocs.docs.length > 0) {
+          const subjectDocRef = subjectDocs.docs[0].ref;
+          const pdfDocData = {
+            name: this.customFileName,
+            pdfUrl: pdfUrl,
+            type: this.pdfType, // Added pdfType
+          };
 
-      const specializationList = [
-        "Artificial Intelligence",
-        "Cloud Computing",
-        "Data Science",
-        "Full Stack",
-      ];
-
-      for (const specialization of specializationList) {
-        const filePath = `pdfs/${semesterName}/${specialization}/${this.customFileName}.pdf`;
-        const fileRef = storageRef(storage, filePath);
-
-        try {
-          const uploadTask = uploadBytesResumable(fileRef, this.selectedFile);
-
-          uploadTask.on("state_changed", (uploadSnapshot) => {
-            const progress =
-              (uploadSnapshot.bytesTransferred / uploadSnapshot.totalBytes) *
-              100;
-            this.uploadProgress = Math.round(progress);
-          });
-
-          await uploadTask;
-
-          const pdfUrl = await getDownloadURL(fileRef);
-          this.pdfUrl = pdfUrl;
-
-          const pdfCollectionPath = [
-            "Semester",
-            this.selectedSemester,
-            "Specialization",
-            specialization,
-            "Subject",
-          ]
-            .filter((segment) => segment !== null)
-            .join("/");
-
-          const subjectQuery = query(
-            collection(db, pdfCollectionPath),
-            where("name", "==", this.selectedSubject)
-          );
-
-          const subjectDocs = await getDocs(subjectQuery);
-
-          if (subjectDocs.docs.length > 0) {
-            const subjectDocRef = subjectDocs.docs[0].ref;
-            const pdfDocData = {
-              name: this.customFileName,
-              pdfUrl: pdfUrl,
-              type: this.pdfType, // Added pdfType
-            };
-
-            try {
-              await addDoc(collection(subjectDocRef, "Pdf"), pdfDocData);
-            } catch (error) {
-              console.error("Error adding PDF metadata to Firestore:", error);
-              alert(
-                "Error adding PDF metadata to Firestore. Please try again."
-              );
-              return;
-            }
-          } else {
-            console.error("Subject document not found.");
+          try {
+            await addDoc(collection(subjectDocRef, "Pdf"), pdfDocData);
+          } catch (error) {
+            console.error("Error adding PDF metadata to Firestore:", error);
             alert(
-              "Subject document not found. Please make sure the subject exists."
+              "Error adding PDF metadata to Firestore. Please try again."
             );
             return;
           }
-        } catch (error) {
-          console.error("Error uploading PDF: ", error);
-          alert("Error uploading the PDF. Please try again.");
-          this.uploadProgress = null;
+        } else {
+          console.error("Subject document not found.");
+          alert(
+            "Subject document not found. Please make sure the subject exists."
+          );
           return;
         }
+      } catch (error) {
+        console.error("Error uploading PDF: ", error);
+        alert("Error uploading the PDF. Please try again.");
+        this.uploadProgress = null;
+        return;
       }
+    }
+  }
 
-      this.selectedFile = null;
-      this.customFileName = "";
-      this.uploadProgress = null;
-      this.pdfType = null; // Reset pdfType after upload
-    },
+  this.selectedFile = null;
+  this.customFileName = "";
+  this.uploadProgress = null;
+  this.pdfType = null; // Reset pdfType after upload
+},
+
+
   },
 
   async created() {
