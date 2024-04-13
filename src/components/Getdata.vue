@@ -225,7 +225,7 @@ export default {
   ).name;
 
   // List of common subjects that will be uploaded for all specializations
-  const commonSubjects = ["Java Programming", "Design Algorithm and Analysis", "Relational Database Management System"];
+  const commonSubjects = ["Computer Organization & Architecture", "Mathematical Foundation for Computer Applicaation", "Data Communication & Computer & Network", "Data Structures with Algorithms", "Operating System & Unix Shell Programming"];
 
   // List of specializations
   const specializationList = [

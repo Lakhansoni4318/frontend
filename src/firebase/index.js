@@ -4,17 +4,17 @@ import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCb1HShH7I5EOIglAINd8xqbQYueCgHPDE",
-  authDomain: "friendnoteshub.firebaseapp.com",
-  projectId: "friendnoteshub",
-  storageBucket: "friendnoteshub.appspot.com",
-  messagingSenderId: "438755235265",
-  appId: "1:438755235265:web:2b2526525409400d230b40",
-  measurementId: "G-3D2BPQMYXF"
+  apiKey: "AIzaSyCEsd-lNqTbDgA9SHsMvkDfCie-CVpNcHc",
+  authDomain: "junior-notes-hub.firebaseapp.com",
+  projectId: "junior-notes-hub",
+  storageBucket: "junior-notes-hub.appspot.com",
+  messagingSenderId: "931694896089",
+  appId: "1:931694896089:web:a5fcd409d4620ee486efc8",
+  measurementId: "G-TXLXHXYHBG"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
-const auth = getAuth(app);
-export { app, storage, auth, db };
+const apps = initializeApp(firebaseConfig);
+const db = getFirestore(apps);
+const storage = getStorage(apps);
+const auth = getAuth(apps);
+export { apps, storage, auth, db };
