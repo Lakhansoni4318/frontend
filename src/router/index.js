@@ -13,6 +13,8 @@ import FeedBack from "../components/FeedBack.vue";
 import Setting from "../components/Setting.vue";
 import AdminPanel from "../components/AdminPanel.vue";
 import Chat from "../components/Chat.vue";
+import YourProfile from "../components/yourProfile.vue";
+import AllProfile from "../components/AllProfile.vue";
 
 const routes = [
   {
@@ -75,6 +77,18 @@ const routes = [
     path: "/feedback",
     component: FeedBack,
     meta: { requiresAuth: true },
+  },
+  {
+    path: "/profile",
+    component: YourProfile,
+    meta: { requiresAuth: true },
+    name: "profile"
+  },
+  {
+    path: "/allprofile",
+    component: AllProfile,
+    meta: { requiresAuth: true },
+    name: "Allprofile"
   },
   {
     path: "/upload",
